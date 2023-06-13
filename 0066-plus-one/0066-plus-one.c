@@ -1,11 +1,6 @@
-/**
- * Note: The returned array must be malloced, assume caller calls free().
- */
-int* plusOne(int* digits, int digitsSize, int* returnSize)
-{
-int i = digitsSize - 1;
-    while (i >= 0) 
-    {
+int* plusOne(int* digits, int digitsSize, int* returnSize) {
+    int i = digitsSize - 1;
+    while (i >= 0) {
         if (digits[i] == 9) {
             digits[i] = 0;
         } else {
