@@ -1,27 +1,26 @@
 # Write your MySQL query statement below
 
 
-select a.machine_id,
-round (
-    (select avg(a1.timestamp) from Activity a1 where a1.activity_type='end' and                      a1.machine_id=a.machine_id) -
-    (select avg(a1.timestamp) from Activity a1 where a1.activity_type='start' and a1.machine_id=a.machine_id)
-,3)
+# select a.machine_id,
+# round (
+#     (select avg(a1.timestamp) from Activity a1 where a1.activity_type='end' and                      a1.machine_id=a.machine_id) -
+#     (select avg(a1.timestamp) from Activity a1 where a1.activity_type='start' and a1.machine_id=a.machine_id)
+# ,3)
 
-as processing_time
-from activity a
-group by a.machine_id
-
-# s.timestamp_processing_time
-# from Activity a1,Activity a2
-# where s.machine_id=e.machine_id 
-
-
-
-# select 
-# a.machine_id,
-# round(
-#       (select avg(a1.timestamp) from Activity a1 where a1.activity_type = 'end' and a1.machine_id = a.machine_id) - 
-#       (select avg(a1.timestamp) from Activity a1 where a1.activity_type = 'start' and a1.machine_id = a.machine_id)
-# ,3) as processing_time
-# from Activity a
+# as processing_time
+# from activity a
 # group by a.machine_id
+
+select a1.machine_id ,round(avg(a2.timestamp-a1.timestamp),3) as processing_time
+from activity a1 join activity a2
+ on a1.machine_id=a2.machine_id and a1.process_id=a2.process_id
+  # on a1.machine_id=a2.machine_id and a1.process_id=a2.process_id
+and a1.activity_type='start' and a2.activity_type="end"
+group by a1.machine_id
+
+# select a1.machine_id, round(avg(a2.timestamp-a1.timestamp), 3) as processing_time 
+# from Activity a1
+# join Activity a2 
+# on a1.machine_id=a2.machine_id and a1.process_id=a2.process_id
+# and a1.activity_type='start' and a2.activity_type='end'
+# group by a1.machine_id
