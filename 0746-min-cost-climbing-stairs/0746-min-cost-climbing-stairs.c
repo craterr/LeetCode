@@ -1,9 +1,3 @@
-int min(int a ,int b)
-{
-    return a<b?a:b;
-}
-
-
 
 int minCostClimbingStairs(int* cost, int costSize) 
 {
@@ -12,6 +6,7 @@ int minCostClimbingStairs(int* cost, int costSize)
         {
             return a < b ? a : b;
         }
+    
     int n=costSize;
     n = n + 1; 
     int arr[n + 2]; 
