@@ -12,6 +12,6 @@ bool isPalindrome(int x) {
     }
 
     
-    return(r==org || r/10==org || org==0);
+    return(r==org || r/10==org );
       
 }
