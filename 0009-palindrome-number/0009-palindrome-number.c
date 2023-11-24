@@ -1,19 +1,17 @@
-bool isPalindrome(int x)
+bool isPalindrome(int x) {
+    int long long r=0;
+    
+    if(x<0 || (x!=0 && x%10==0) )
+        return false;
+    int long long org=x;
+    while(x)
+    {
+        r=r*10+x%10;
+        x=x/10;
+        
+    }
 
-{
-      if(x == 0)
-            return true;
-        if(x < 0 || x % 10 == 0)
-            return false;
-        
-        int reverse = 0;
-        
-        while(x > reverse)
-        {
-            int lastDigit = x % 10;
-            x /= 10;
-            reverse = reverse * 10 + lastDigit;
-        }
-        
-        return x == reverse || x == reverse / 10;
+    
+    return(r==org || r/10==org || org==0);
+      
 }
