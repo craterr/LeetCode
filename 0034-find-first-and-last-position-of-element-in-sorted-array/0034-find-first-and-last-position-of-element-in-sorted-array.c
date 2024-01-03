@@ -2,55 +2,6 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 
-// int bs(int *nums,int low,int high,int target)
-// {
-//     int* search
-// }
-
-
-
-// int* searchRange(int* nums, int numsSize, int target, int* returnSize) 
-// {
-//     int low=0;
-//     int high=numsSize-1;
-//     int *result=(int*)malloc(2*sizeof(int));
-//     *returnSize=0;
-    
-//     while(high>=low)
-//     {
-//         int mid=(high+low)/2;
-        
-//         if(nums[mid]==target)
-//         {   
-//             //int result=(int*)malloc(2*sizeof(int));
-            
-//             result[0]=mid;
-//             while(nums[mid]==target)
-//             {
-//                 mid++;
-//                 if(nums[mid]==target)
-//                     result[1]=mid;
-//                 else
-//                     result[1]=--mid;
-//             }
-            
-            
-//         } 
-//         else if(nums[mid]<target)
-//             low=mid+1;
-//         else
-//             high=mid-1;
-//     }
-    
-//     result[0]=-1;
-//     result[1]=-1;
-//     *returnSize=2;
-//     return result;
-    
-// }
-
-
-#include <stdlib.h>
 
 int* searchRange(int* nums, int numsSize, int target, int* returnSize) 
 {
