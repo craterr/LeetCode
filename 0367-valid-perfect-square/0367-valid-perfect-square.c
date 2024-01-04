@@ -9,7 +9,7 @@ bool isPerfectSquare(int num)
         long ans=(long)mid*mid;
         
         if(ans==num)
-            return true;
+            return true; //When it is a perfect square
         
         else if(ans<num)
             low=mid+1;
@@ -17,6 +17,6 @@ bool isPerfectSquare(int num)
             high=mid-1;
        
     }
-    return false;
+    return false;//when its not a perfect square
     
 }
