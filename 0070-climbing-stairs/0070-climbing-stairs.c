@@ -1,19 +1,17 @@
 int climbStairs(int n) 
 {
+    if(n==1 || n==2 || n==3)
+        return n;
     
-    
- if (n==1||n==2||n==3)
-     return n;
- 
-    int a=2,b=3,res;
- for(int i=4;i<=n;i++)
- {
-     res=a+b;
-     a=b;
-     b=res;
- 
-     
- }
-    return b;
+    int dp[n+1];
+    dp[1] = 1;
+    dp[2] = 2;
+    dp[3] = 3;
+
+    for(int i=4;i<=n;i++)
+    {
+        dp[i]=dp[i-1]+dp[i-2];
+    }
+    return dp[n];
     
 }
