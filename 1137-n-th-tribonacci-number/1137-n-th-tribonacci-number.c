@@ -2,23 +2,20 @@
 
 int tribonacci(int n)
 {
-    if(n==0||n==1)
-        return n;
-    if(n==2)
-        return 1;
-    
-    int a=0,b=1,c=1;
-    int res;
+    if(n==0)
+        return 0;
+    if(n==1 || n==2) return 1;
+    int prev3=0;
+    int prev2=1;
+    int prev=1;
+    int cur;
     
     for(int i=3;i<=n;i++)
     {
-        res=a+b+c;
-        a=b;
-        b=c;
-        c=res;
-        
-            
-    }    
-    return c;
-
+        cur=prev3+prev2+prev;
+        prev3=prev2;
+        prev2=prev;
+        prev=cur;
+    }
+    return prev;
 }
