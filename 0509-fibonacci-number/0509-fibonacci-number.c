@@ -1,23 +1,21 @@
-
-
 int fib(int n)
 {
-    if(n<=1)
+    //int dp[n+1];
+    if(n==0 || n==1)
         return n;
-    // int F[30];
-    // F[0]=0,F[1]=1;
-    // for(int i=2;i<=n;i++)
-    // {
-    //     F[i]=F[i-1]+F[i-2];
-    // }
-    // return F[n];
-    int a=0,b=1;
-    int res;
+    int prev2=0;
+    int prev=1;
+    
+    int cur;
+    
     for(int i=2;i<=n;i++)
     {
-        res=a+b;
-        a=b;
-        b=res;
+        cur=prev2+prev;
+        prev2=prev;
+        prev=cur;
     }
-    return b;
+    return prev;
+    
+    
+
 }
