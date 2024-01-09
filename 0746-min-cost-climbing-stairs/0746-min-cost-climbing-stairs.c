@@ -1,23 +1,15 @@
-
-int minCostClimbingStairs(int* cost, int costSize) 
-{
+int minCostClimbingStairs(int* cost, int costSize){
+    int ans ;
+    int* stairs = (int*)malloc(costSize * sizeof(int));
+    stairs[0] = cost[0];
+    stairs[1] = cost[1];
     
-        int min(int a, int b)
-        {
-            return a < b ? a : b;
-        }
-    
-    int n=costSize;
-    n = n + 1; 
-    int arr[n + 2]; 
-    arr[2] = 0;  
-    arr[1] = 0; 
-    for (int i = 3; i <= n; i++) {
-     
-        arr[i] = min(cost[i - 3] + arr[i - 2], cost[i - 2] + arr[i - 1]);
+    for(int i = 2; i < costSize; i++){
+        stairs[i] = (stairs[i-1] <= stairs[i-2]) ? (stairs[i-1] + cost[i]) : (stairs[i-2] + cost[i]);
     }
-
-    return arr[n]; 
-
-
+    
+    ans = fmin(stairs[costSize-1], stairs[costSize-2]);
+    
+    free(stairs);
+    return ans;
 }
