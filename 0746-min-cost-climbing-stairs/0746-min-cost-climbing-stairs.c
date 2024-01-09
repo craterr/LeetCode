@@ -1,8 +1,4 @@
 
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
 int minCostClimbingStairs(int* cost, int costSize) {
     if (costSize <= 1) {
         return 0;  
@@ -14,11 +10,11 @@ int minCostClimbingStairs(int* cost, int costSize) {
 
     
     for (int i = 2; i < costSize; i++) {
-        dp[i] = cost[i] + min(dp[i - 1], dp[i - 2]);
+        dp[i] = cost[i] + fmin(dp[i - 1], dp[i - 2]);
     }
 
     // The minimum cost to reach the top is the minimum of the last two steps
-    int result = min(dp[costSize - 1], dp[costSize - 2]);
+    int result = fmin(dp[costSize - 1], dp[costSize - 2]);
 
     free(dp);
 
