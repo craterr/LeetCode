@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-long long uniquePaths(int m, int n) {
+int  uniquePaths(int m, int n) {
     if (m <= 0 || n <= 0) return 0;
 
-    long long dp[m][n];
+    int dp[m][n];
 
     // Initialize the first row and first column to 1
     for (int i = 0; i < m; ++i) {
