@@ -9,7 +9,7 @@ int minimumTotal(int** triangle, int triangleSize, int* triangleColSize) {
         dp[i] = triangle[n-1][i];
     }
 
-    //Initialising the second-to-last row and work upwards
+    //Initialising the second-last row and upwards
     for (int i = n - 2; i >= 0; i--) {
         for (int j = 0; j <= i; j++) {
             dp[j] = fmin(dp[j], dp[j + 1]) + triangle[i][j];
